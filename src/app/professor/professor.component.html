@@ -1,0 +1,31 @@
+<h1>{{title}}</h1>
+<div class="container">
+  <div class="row" *ngFor="let prof of professors">
+    <div class="card card-block">
+      <h4 class="card-title">{{ prof.name }}, {{prof.lastName}}</h4>
+      <p class="card-text">Materias...</p>
+    </div>
+  </div>
+  {{modalBody}}
+  <app-modal modalId="prof-add-modal"
+    modalTitle="Agregar profesor">
+    <modal-body>
+      <div>
+        <label>Nombre: </label>
+        <input [(ngModel)]="newProfessor.name" placeholder="Nombre" />
+      </div>
+      <div>
+        <label>Apellido: </label>
+        <input [(ngModel)]="newProfessor.lastName" placeholder="Apellido" />
+       </div>
+    </modal-body>
+    <modal-footer>
+      <button type="button" class="btn btn-default" data-dismiss="modal" (click)="goBack()">Cancelar</button>
+      <button (click)="create()">Guardar</button>
+    </modal-footer>
+  </app-modal>
+  <button type="button" class="btn btn-primary"
+   data-toggle="modal" data-target="#prof-add-modal">
+  Agregar
+  </button>
+</div>
