@@ -7,30 +7,30 @@ import { RouterModule } from '@angular/router';
 import { ApiXHRBackend } from './ApiXHRBackend';
 
 import { AppComponent } from './app.component';
-import { ProfessorComponent } from './professor/professor.component';
-import { ProfessorsService } from './professors.service';
-import { ModalComponent } from './modal/modal.component';
-import { ModalFooterComponent } from './modal/modal.component';
-import { ModalBodyComponent } from './modal/modal.component';
+import { ModuloComponent } from './component/modulo/modulo.component';
+import { ModalComponent } from './component/modal/modal.component';
+import { ModalFooterComponent } from './component/modal/modal.component';
+import { ModalBodyComponent } from './component/modal/modal.component';
+import { ModuloService } from './service/modulo/modulo.service';
 
 
 // Define the routes
 const ROUTES = [
   {
     path: '',
-    redirectTo: 'professors',
+    redirectTo: 'modulos',
     pathMatch: 'full'
   },
   {
-    path: 'professors',
-    component: ProfessorComponent
+    path: 'modulos',
+    component: ModuloComponent
   }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProfessorComponent,
+    ModuloComponent,
     ModalComponent,
     ModalFooterComponent,
     ModalBodyComponent
@@ -41,7 +41,7 @@ const ROUTES = [
     HttpModule,
     RouterModule.forRoot(ROUTES) // Add routes to the app
   ],
-  providers: [{ provide: XHRBackend, useClass: ApiXHRBackend },ProfessorsService],
+  providers: [{ provide: XHRBackend, useClass: ApiXHRBackend }, ModuloService],
   bootstrap: [AppComponent]
 })
 

@@ -1,32 +1,31 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
-import { Professor } from './professor';
+import { Modulo } from '../../model/modulo';
 
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class ProfessorsService {
+export class ModuloService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
-  private apiUrl = '/api/profesores';
+  private apiUrl = '/api/modulos';
 
-  constructor(private http: Http) {
-  console.log('Creado profesoresService'); }
+  constructor(private http: Http) { }
 
   // Get all posts from the API
-  getAllProfessors() {
+  getAllModulos() {
     return this.http.get(this.apiUrl)
       .map(res => res.json());
   }
 
-  create(prof : Professor): Promise<Professor> {
+  create(prof : Modulo): Promise<Modulo> {
   return this.http
     .post(this.apiUrl,
       JSON.stringify(prof),
       {headers: this.headers})
     .toPromise()
-    .then(res => res.json().data as Professor)
+    .then(res => res.json().data as Modulo)
     .catch(this.handleError);
   }
 

@@ -1,0 +1,43 @@
+<h1>{{title}}</h1>
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Docente</th>
+        <th scope="col">Suplente</th>
+        <th scope="col">Revista</th>
+        <th scope="col">Espacio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let modulo of moduloList">
+        <th scope="row">{{ modulo.docente }}</th>
+        <td>{{ modulo.suplente }}</td>
+        <td>{{ modulo.revista }}</td>
+        <td>{{ modulo.espacio }}</td>
+      </tr>
+    </tbody>
+  </table>
+  {{modalBody}}
+  <app-modal modalId="modulo-add-modal"
+    modalTitle="Agregar modulo">
+    <modal-body>
+      <div>
+        <label>Nombre: </label>
+        <input [(ngModel)]="newModulo.Docente" placeholder="Nombre" />
+      </div>
+      <div>
+        <label>Apellido: </label>
+        <input [(ngModel)]="newModulo.Suplente" placeholder="Apellido" />
+       </div>
+    </modal-body>
+    <modal-footer>
+      <button type="button" class="btn btn-default" data-dismiss="modal" (click)="goBack()">Cancelar</button>
+      <button (click)="create()">Guardar</button>
+    </modal-footer>
+  </app-modal>
+  <button type="button" class="btn btn-primary"
+   data-toggle="modal" data-target="#modulo-add-modal">
+  Agregar
+  </button>
+</div>
