@@ -10,8 +10,10 @@ declare var $: any;
 })
 export class ModuloComponent implements OnInit {
 
-  title = "Profesores";
+  title = "Modulos";
+  criteria = new Modulo();
   moduloList : any = [];
+  criteriaTypeList : string[] = ["docente", "revista"]
   newModulo : Modulo = new Modulo();
   addProfModal = "#prof-add-modal";
 
@@ -32,6 +34,7 @@ export class ModuloComponent implements OnInit {
     this.moduloService.getAllModulos().subscribe(moduloList => {
       this.moduloList = moduloList;
     });
+    this.criteria.revista = "P";
   }
 
 }

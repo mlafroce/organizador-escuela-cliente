@@ -13,6 +13,8 @@ import { ModalFooterComponent } from './component/modal/modal.component';
 import { ModalBodyComponent } from './component/modal/modal.component';
 import { ModuloService } from './service/modulo/modulo.service';
 
+import { ModuloFilterPipe } from './model/moduloPipe'
+
 
 // Define the routes
 const ROUTES = [
@@ -33,7 +35,8 @@ const ROUTES = [
     ModuloComponent,
     ModalComponent,
     ModalFooterComponent,
-    ModalBodyComponent
+    ModalBodyComponent,
+    ModuloFilterPipe
   ],
   imports: [
     BrowserModule,

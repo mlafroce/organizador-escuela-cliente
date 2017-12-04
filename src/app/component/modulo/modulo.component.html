@@ -1,5 +1,22 @@
 <h1>{{title}}</h1>
 <div class="container">
+  <button class="btn btn-primary" type="button"
+   data-toggle="collapse" data-target="#searchArea"
+   aria-expanded="false" aria-controls="searchArea">
+    Filtros
+  </button>
+  <button type="button" class="btn btn-primary"
+   data-toggle="modal" data-target="#modulo-add-modal">
+  Agregar
+  </button>
+  <div id="searchArea" class="collapse">
+    <div class="form-group">
+      <label for="criteriaType">Campo:</label>
+      <select class="form-control" id="criteriaType">
+        <option *ngFor="let criteriaType of criteriaTypeList" value="{{ criteriaType }}">{{ criteriaType }}</option>
+      </select>
+    </div>
+  </div>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -10,7 +27,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let modulo of moduloList">
+      <tr *ngFor="let modulo of moduloList | moduloFilter: criteria">
         <th scope="row">{{ modulo.docente }}</th>
         <td>{{ modulo.suplente }}</td>
         <td>{{ modulo.revista }}</td>
@@ -36,8 +53,5 @@
       <button (click)="create()">Guardar</button>
     </modal-footer>
   </app-modal>
-  <button type="button" class="btn btn-primary"
-   data-toggle="modal" data-target="#modulo-add-modal">
-  Agregar
-  </button>
+
 </div>
