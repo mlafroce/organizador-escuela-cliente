@@ -1,0 +1,15 @@
+<div class="collapse">
+  <div class="form-group row">
+    <label for="criteriaType" class="col-sm-2 col-form-label">Campo:</label>
+    <select class="form-control col-md-4" id="criteriaType" aria-label="Seleccione un campo" [(ngModel)]="currentCriteriaType">
+      <option *ngFor="let criteriaType of criteriaTypeList" value="{{ criteriaType }}">{{ criteriaType }}</option>
+    </select>
+  </div>
+  <div class="form-group row">
+    <label for="criteriaInput" class="col-sm-2 col-form-label">Valor:</label>
+    <input [(ngModel)]="currentCriteriaValue" placeholder="{{ criteriaType }}" class="form-control col-md-4"/>
+  </div>
+  <div>
+    <button type="button" class="btn btn-primary"(click)="create()">Guardar</button>
+  </div>
+</div>

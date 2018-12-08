@@ -9,14 +9,8 @@
    data-toggle="modal" data-target="#modulo-add-modal">
   Agregar
   </button>
-  <div id="searchArea" class="collapse">
-    <div class="form-group">
-      <label for="criteriaType">Campo:</label>
-      <select class="form-control" id="criteriaType">
-        <option *ngFor="let criteriaType of criteriaTypeList" value="{{ criteriaType }}">{{ criteriaType }}</option>
-      </select>
-    </div>
-  </div>
+  <app-criteria-form id="searchArea">
+  </app-criteria-form>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -40,17 +34,17 @@
     modalTitle="Agregar modulo">
     <modal-body>
       <div>
-        <label>Nombre: </label>
-        <input [(ngModel)]="newModulo.Docente" placeholder="Nombre" />
+        <label>Docente: </label>
+        <input [(ngModel)]="newModulo.Docente" placeholder="Docente" />
       </div>
       <div>
-        <label>Apellido: </label>
-        <input [(ngModel)]="newModulo.Suplente" placeholder="Apellido" />
+        <label>Suplente: </label>
+        <input [(ngModel)]="newModulo.Suplente" placeholder="Suplente" />
        </div>
     </modal-body>
     <modal-footer>
-      <button type="button" class="btn btn-default" data-dismiss="modal" (click)="goBack()">Cancelar</button>
-      <button (click)="create()">Guardar</button>
+      <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="goBack()">Cancelar</button>
+      <button type="button" class="btn btn-primary"(click)="create()">Guardar</button>
     </modal-footer>
   </app-modal>
 

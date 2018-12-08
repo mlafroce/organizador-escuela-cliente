@@ -7,13 +7,14 @@ import { RouterModule } from '@angular/router';
 import { ApiXHRBackend } from './ApiXHRBackend';
 
 import { AppComponent } from './app.component';
+import { CriteriaFormComponent } from './component/criteria-form/criteria-form.component'
 import { ModuloComponent } from './component/modulo/modulo.component';
 import { ModalComponent } from './component/modal/modal.component';
 import { ModalFooterComponent } from './component/modal/modal.component';
 import { ModalBodyComponent } from './component/modal/modal.component';
 import { ModuloService } from './service/modulo/modulo.service';
 
-import { ModuloFilterPipe } from './model/moduloPipe'
+import { ModuloFilterPipe } from './model/moduloPipe';
 
 
 // Define the routes
@@ -32,6 +33,7 @@ const ROUTES = [
 @NgModule({
   declarations: [
     AppComponent,
+    CriteriaFormComponent,
     ModuloComponent,
     ModalComponent,
     ModalFooterComponent,

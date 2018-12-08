@@ -8,7 +8,6 @@ export class ApiXHRBackend extends XHRBackend {
         if (request.url.startsWith('/')){
             request.url = environment.apiUrl + request.url;     // prefix base url
         }
-        console.log("Api url: " + environment.apiUrl);
         return super.createConnection(request);
     }
 }
