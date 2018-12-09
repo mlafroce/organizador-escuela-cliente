@@ -6,24 +6,24 @@ import { RouterModule } from '@angular/router';
 
 import { BaseInterceptor } from './BaseInterceptor';
 
+// Componentes
 import { AppComponent } from './app.component';
 import { CriteriaFormComponent } from './component/criteria-form/criteria-form.component'
+import { DocenteComponent } from './component/docente/docente.component';
 import { ModuloComponent } from './component/modulo/modulo.component';
 import { ModalComponent } from './component/modal/modal.component';
 import { ModalFooterComponent } from './component/modal/modal.component';
 import { ModalBodyComponent } from './component/modal/modal.component';
+
+// Servicios
 import { ModuloService } from './service/modulo/modulo.service';
 
+// Modelo
 import { ModuloFilterPipe } from './model/moduloPipe';
 
 
 // Define the routes
 const ROUTES = [
-  {
-    path: '',
-    redirectTo: 'modulos',
-    pathMatch: 'full'
-  },
   {
     path: 'modulos',
     component: ModuloComponent
@@ -34,6 +34,7 @@ const ROUTES = [
   declarations: [
     AppComponent,
     CriteriaFormComponent,
+    DocenteComponent,
     ModuloComponent,
     ModalComponent,
     ModalFooterComponent,

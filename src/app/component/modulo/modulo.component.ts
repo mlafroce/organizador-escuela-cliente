@@ -13,7 +13,7 @@ export class ModuloComponent implements OnInit, OnChanges {
   title = "Modulos";
   criteria = new Modulo();
   moduloList : any = [];
-  criteriaTypeList : string[] = ["docente", "revista"]
+  criteriaTypeList : string[] = ["docenteId", "revista"]
   newModulo : Modulo = new Modulo();
   addModuloModal = "#modulo-add-modal";
 
@@ -40,7 +40,6 @@ export class ModuloComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-    console.log("Init");
     this.moduloService.getAllModulos().subscribe(moduloList => {
       this.moduloList = moduloList;
     });
