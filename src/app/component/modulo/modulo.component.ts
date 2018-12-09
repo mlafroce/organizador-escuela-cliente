@@ -23,9 +23,10 @@ export class ModuloComponent implements OnInit, OnChanges {
   constructor(private moduloService: ModuloService) { }
 
   create() : void {
+    console.log("Create called");
     if (!this.newModulo.valid()) { return; }
     this.moduloService.create(this.newModulo)
-      .then(modulo => {
+      .subscribe(modulo => {
       console.log(this.moduloList);
       console.log(modulo);
         this.moduloList.push(modulo);

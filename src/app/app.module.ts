@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpModule, XHRBackend} from '@angular/http';
+import { HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
-import { ApiXHRBackend } from './ApiXHRBackend';
+import { BaseInterceptor } from './BaseInterceptor';
 
 import { AppComponent } from './app.component';
 import { CriteriaFormComponent } from './component/criteria-form/criteria-form.component'
@@ -43,10 +43,10 @@ const ROUTES = [
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     RouterModule.forRoot(ROUTES) // Add routes to the app
   ],
-  providers: [{ provide: XHRBackend, useClass: ApiXHRBackend }, ModuloService],
+  providers: [{ provide: HTTP_INTERCEPTORS, multi: true, useClass: BaseInterceptor }, ModuloService, HttpClientModule ],
   bootstrap: [AppComponent]
 })
 
