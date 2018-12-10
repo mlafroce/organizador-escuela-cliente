@@ -27,6 +27,10 @@ const ROUTES = [
   {
     path: 'modulos',
     component: ModuloComponent
+  },
+  {
+    path: 'docentes',
+    component: DocenteComponent
   }
 ];
 

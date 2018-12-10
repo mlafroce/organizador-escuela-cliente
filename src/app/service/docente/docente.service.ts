@@ -6,7 +6,7 @@ import { Docente } from '../../model/docente';
   providedIn: 'root'
 })
 export class DocenteService {
-  private apiUrl = 'api/docentes';
+  private apiUrl = '/api/docentes';
 
   constructor(protected httpClient: HttpClient) { }
 
@@ -16,7 +16,7 @@ export class DocenteService {
   }
 
   update(docente: Docente) {
-    return this.httpClient.put<Docente>(this.apiUrl, docente);
+    return this.httpClient.put<Docente>(`${this.apiUrl}/${docente._id}` , docente);
   }
 
   insert(docente: Docente) {

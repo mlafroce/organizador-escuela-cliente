@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 export class ModuloService {
 
   //private headers = new Headers({'Content-Type': 'application/json'});
-  private apiUrl = 'api/modulos';
+  private apiUrl = '/api/modulos';
 
   constructor(protected httpClient: HttpClient) { }
 

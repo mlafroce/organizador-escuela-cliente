@@ -2,6 +2,7 @@ export class Docente {
   _id: string;
   nombre : string;
   apellido : string;
+  modulos : any = [];
 
   constructor () {
   }
