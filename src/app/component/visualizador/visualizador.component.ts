@@ -1,4 +1,6 @@
 import { Component, Input, OnInit, AfterViewInit, ElementRef, Renderer2} from '@angular/core';
+import { ModuloService } from '../../service/modulo/modulo.service';
+import { VisualizadorModulo } from './visualizadorModulo';
 
 @Component({
   selector: 'app-visualizador',
@@ -11,25 +13,38 @@ export class VisualizadorComponent implements OnInit {
   rowWidth: number = 400;
   dateTimeStart = 7;
   dateTimeEnd = 18;
+  moduloList : any = [];
+  
+  constructor(
+    private moduloService: ModuloService,
+    private el: ElementRef,
+    private renderer: Renderer2
+  ) { }
 
-  constructor(private el: ElementRef, private renderer: Renderer2) { }
-
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   ngAfterViewInit() {
     this.buildTable();
     this.setHeights();
+    this.moduloService.getAllModulos().subscribe(moduloList => {
+      this.moduloList = moduloList;
+      this.drawModulos();
+    });
   }
 
-  addRect(x: number, y: number, width: number, height: number) {
-    const svg = this.el.nativeElement.querySelector('svg');
-    const rect = this.renderer.createElement('rect', 'svg');
-    this.renderer.setAttribute(rect, 'x', x.toString());
-    this.renderer.setAttribute(rect, 'y', y.toString());
-    this.renderer.setAttribute(rect, 'width', width.toString());
-    this.renderer.setAttribute(rect, 'height', height.toString());
-    this.renderer.setAttribute(rect, 'style', 'fill:blue;stroke:pink;stroke-width:2;fill-opacity:0.2;stroke-opacity:0.5');
-    this.renderer.appendChild(svg, rect);
+  drawModulos() {
+    console.log("DRAW!");
+    for (let modulo of this.moduloList) {
+      let visModulo = new VisualizadorModulo(
+        modulo,
+        this.el,
+        this.renderer,
+        this.rowHeight,
+        this.rowWidth
+      )
+      visModulo.draw();
+    }
   }
 
   buildTable() {

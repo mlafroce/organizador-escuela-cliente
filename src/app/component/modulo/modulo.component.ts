@@ -11,10 +11,10 @@ declare var $: any;
 export class ModuloComponent implements OnInit, OnChanges {
 
   title = "Modulos";
-  criteria = new Modulo();
+  criteria = new Modulo({});
   moduloList : any = [];
   criteriaTypeList : string[] = ["docenteId", "revista"]
-  newModulo : Modulo = new Modulo();
+  newModulo : Modulo = new Modulo({});
   addModuloModal = "#modulo-add-modal";
 
   @Input() currentCriteriaValue: string;
