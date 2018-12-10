@@ -14,6 +14,7 @@ import { ModuloComponent } from './component/modulo/modulo.component';
 import { ModalComponent } from './component/modal/modal.component';
 import { ModalFooterComponent } from './component/modal/modal.component';
 import { ModalBodyComponent } from './component/modal/modal.component';
+import { VisualizadorComponent } from './component/visualizador/visualizador.component';
 
 // Servicios
 import { ModuloService } from './service/modulo/modulo.service';
@@ -31,6 +32,10 @@ const ROUTES = [
   {
     path: 'docentes',
     component: DocenteComponent
+  },
+  {
+    path: 'visualizador',
+    component: VisualizadorComponent
   }
 ];
 
@@ -43,6 +48,7 @@ const ROUTES = [
     ModalComponent,
     ModalFooterComponent,
     ModalBodyComponent,
+    VisualizadorComponent,
     ModuloFilterPipe
   ],
   imports: [
