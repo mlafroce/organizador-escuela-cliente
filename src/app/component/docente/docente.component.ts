@@ -9,9 +9,10 @@ declare var $: any;
   styleUrls: ['./docente.component.scss']
 })
 export class DocenteComponent implements OnInit {
+  readonly title = 'Docentes';
+  readonly addDocenteModal = '#docente-add-modal';
   docenteList : any = [];
   currentDocente : Docente = new Docente();
-  addDocenteModal = "#docente-add-modal";
   isEdit = false;
 
   constructor(private docenteService: DocenteService) { }
@@ -28,7 +29,7 @@ export class DocenteComponent implements OnInit {
   }
 
   save() : void {
-    console.log("Guardando");
+    console.log('Guardando');
     if (this.isEdit) {
       this.docenteService.update(this.currentDocente).subscribe();
     } else {

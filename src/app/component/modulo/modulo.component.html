@@ -23,23 +23,22 @@
     <tbody>
       <tr *ngFor="let modulo of moduloList | moduloFilter: criteria">
         <th scope="row">{{ modulo.docente }}</th>
-        <td>{{ modulo.suplente }}</td>
-        <td>{{ modulo.revista }}</td>
-        <td>{{ modulo.espacio }}</td>
+        <td>{{ modulo.name }}</td>
+        <td>{{ modulo.hourFrom }}</td>
+        <td>{{ modulo.HourTo }}</td>
       </tr>
     </tbody>
   </table>
-  {{modalBody}}
   <app-modal modalId="modulo-add-modal"
     modalTitle="Agregar modulo">
     <modal-body>
       <div>
         <label>Docente: </label>
-        <input [(ngModel)]="newModulo.Docente" placeholder="Docente" />
+        <input [(ngModel)]="newModulo.docente" placeholder="Docente" />
       </div>
       <div>
-        <label>Suplente: </label>
-        <input [(ngModel)]="newModulo.Suplente" placeholder="Suplente" />
+        <label>Nombre: </label>
+        <input [(ngModel)]="newModulo.name" placeholder="Nombre" />
        </div>
     </modal-body>
     <modal-footer>

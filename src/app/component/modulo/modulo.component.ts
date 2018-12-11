@@ -45,4 +45,5 @@ export class ModuloComponent implements OnInit, OnChanges {
     });
   }
 
+  goBack() {}
 }

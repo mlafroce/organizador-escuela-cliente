@@ -7,14 +7,18 @@ import { Component } from '@angular/core';
 })
 export class CriteriaFormComponent {
 
-  criteriaType : String;
-  criteriaValue : String;
-  criteriaList : any = []; 
+  currentCriteriaType : String;
+  currentCriteriaValue : String;
+  criteriaType: String;
+  criteriaTypeList : any = []; 
 
   constructor() {
   }
 
   submitForm(value: any){
     console.log(value);
+  }
+
+  create() {
   }
 }
