@@ -10,7 +10,7 @@ import { VisualizadorModulo } from './visualizadorModulo';
 export class VisualizadorComponent implements OnInit {
   @Input() visId: string = 'visId' ;
   @Input() rowHeight: number = 30 ;
-  rowWidth: number = 400;
+  rowWidth: number = 400 * 0.17;
   dateTimeStart = 7;
   dateTimeEnd = 18;
   moduloList : any = [];
@@ -71,9 +71,8 @@ export class VisualizadorComponent implements OnInit {
     const rowNum = this.dateTimeEnd - this.dateTimeStart;
     const totalHeight = (this.rowHeight * rowNum + 50).toString();
     this.renderer.setAttribute(tbody, 'height', (this.rowHeight * rowNum).toString());
-    this.renderer.setAttribute(svg, 'height', totalHeight);
     this.renderer.setAttribute(foreignObject, 'height', totalHeight);
-    this.renderer.setAttribute(svg, 'viewbox', `0 0 ${this.rowWidth} ${totalHeight}`);
     this.renderer.setAttribute(rows, 'height', this.rowHeight.toString());
+    this.renderer.setAttribute(svg, 'viewBox', `0 0 400 380`);
   }
 }

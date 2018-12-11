@@ -3,8 +3,9 @@ import { Modulo } from '../../model/modulo';
 import { ModuloService } from '../../service/modulo/modulo.service';
 
 export class VisualizadorModulo {
-  readonly xOffset = 100
-  readonly yOffset = 25
+  // x is %
+  readonly xOffset = 400 * 0.15;
+  readonly yOffset = 30;
 
   constructor(
     private modulo: Modulo,
@@ -15,17 +16,17 @@ export class VisualizadorModulo {
   ){}
 
   draw() {
-    let x = this.rowWidth * (Number(this.modulo.day) - 1) / 6 + this.xOffset;
+    let x = this.rowWidth * (Number(this.modulo.day) - 1) + this.xOffset;
     let rowPos = this.getRowPos(this.modulo);
     let y = rowPos + this.yOffset;
-    this.drawRect(x, y, this.rowWidth / 6, this.getHeight(this.modulo));
+    this.drawRect(x, y, this.rowWidth, this.getHeight(this.modulo));
   }
 
   getRowPos(modulo: Modulo) {
     let hour = modulo.hourFrom;
     let hourNum = hour.split(":");
     let pos = (Number(hourNum[0]) - 7) * 60 + Number(hourNum[1])
-    return pos * this.rowHeight / 60; //
+    return pos * this.rowHeight / 60;
   }
 
   getHeight(modulo: Modulo) {
@@ -42,7 +43,7 @@ export class VisualizadorModulo {
     this.renderer.setAttribute(rect, 'y', y.toString());
     this.renderer.setAttribute(rect, 'width', width.toString());
     this.renderer.setAttribute(rect, 'height', height.toString());
-    this.renderer.setAttribute(rect, 'style', 'fill:blue;stroke:pink;stroke-width:2;fill-opacity:0.2;stroke-opacity:0.5');
+    this.renderer.setAttribute(rect, 'style', 'fill:blue;stroke:darkblue;stroke-width:1;fill-opacity:0.2;stroke-opacity:0.5');
     this.renderer.appendChild(svg, rect);
   }
 }
