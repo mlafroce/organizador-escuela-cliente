@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientModule } from '@angular/common/http';
 
 import { VisualizadorComponent } from './visualizador.component';
 
@@ -8,7 +9,8 @@ describe('VisualizadorComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VisualizadorComponent ]
+      declarations: [ VisualizadorComponent ],
+      imports: [ HttpClientModule ]
     })
     .compileComponents();
   }));

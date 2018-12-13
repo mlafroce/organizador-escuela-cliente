@@ -1,9 +1,9 @@
-/* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { ModalComponent } from './modal.component';
+import { ModalComponent, ModalBodyComponent, ModalFooterComponent } from './modal.component';
 
 describe('ModalComponent', () => {
   let component: ModalComponent;
@@ -11,7 +11,12 @@ describe('ModalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalComponent ]
+      declarations: [ 
+        ModalComponent,
+        ModalBodyComponent,
+        ModalFooterComponent
+      ],
+      imports: [FormsModule]
     })
     .compileComponents();
   }));

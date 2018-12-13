@@ -1,7 +1,12 @@
 /* tslint:disable:no-unused-variable */
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { DebugElement } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { By } from '@angular/platform-browser';
+import { ModalComponent, ModalBodyComponent, ModalFooterComponent } from '../modal/modal.component';
+import { CriteriaFormComponent } from '../criteria-form/criteria-form.component';
+import { ModuloFilterPipe } from '../../model/moduloPipe';
 
 import { ModuloComponent } from './modulo.component';
 
@@ -11,7 +16,15 @@ describe('ModuloComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModuloComponent ]
+      declarations: [
+        ModuloComponent,
+        ModalComponent,
+        ModalBodyComponent,
+        ModalFooterComponent,
+        CriteriaFormComponent,
+        ModuloFilterPipe
+      ],
+      imports: [ FormsModule, HttpClientModule ]
     })
     .compileComponents();
   }));
