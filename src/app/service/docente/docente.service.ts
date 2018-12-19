@@ -12,7 +12,7 @@ export class DocenteService {
 
   // Obtiene todos los docentes
   getAllDocentes() {
-    return this.httpClient.get<Array<Docente>>(this.apiUrl);
+    return this.httpClient.get<Array<Docente>>(this.apiUrl, {withCredentials: true});
   }
 
   update(docente: Docente) {

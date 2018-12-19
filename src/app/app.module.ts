@@ -8,6 +8,7 @@ import { BaseInterceptor } from './BaseInterceptor';
 
 // Componentes
 import { AppComponent } from './app.component';
+import { AuthComponent } from './component/auth/auth.component';
 import { CriteriaFormComponent } from './component/criteria-form/criteria-form.component'
 import { DocenteComponent } from './component/docente/docente.component';
 import { ModuloComponent } from './component/modulo/modulo.component';
@@ -49,7 +50,8 @@ const ROUTES = [
     ModalFooterComponent,
     ModalBodyComponent,
     VisualizadorComponent,
-    ModuloFilterPipe
+    ModuloFilterPipe,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
