@@ -19,6 +19,6 @@ export class AuthComponent implements OnInit {
   }
 
   loginWithGoogle() {
-    this.document.location.href = environment.apiUrl + '/auth/facebook';
+    this.document.location.href = environment.apiUrl + '/auth/google';
   }
 }
