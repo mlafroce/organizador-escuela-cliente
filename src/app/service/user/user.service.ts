@@ -14,7 +14,6 @@ export class UserService {
     console.log("Service.getProfile() ->");
     let cached: any;
     if (cached = sessionStorage.getItem(this.apiUrl)) {
-      console.log("Cached!");
       return new Observable(JSON.parse(cached));
     } else {
       let request = this.httpClient.get(this.apiUrl);

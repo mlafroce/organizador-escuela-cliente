@@ -11,7 +11,6 @@ import { environment } from '../environments/environment';
 @Injectable()
 export class BaseInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log("ENV: ", environment.apiUrl);
     req = req.clone({
       url: environment.apiUrl + req.url,
       withCredentials: true

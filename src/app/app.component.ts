@@ -13,7 +13,8 @@ export class AppComponent {
   navLinks = [
     {"name": "Docentes", "routerLink": "docentes"},
     {"name": "Módulos", "routerLink": "modulos"},
-    {"name": "Visualizador", "routerLink": "visualizador"}
+    {"name": "Visualizador", "routerLink": "visualizador"},
+    {"name": "Login", "routerLink": "login"}
   ]
   
   constructor(
@@ -23,7 +24,13 @@ export class AppComponent {
   ngOnInit() {
     this.userService.getProfile().subscribe(userProfile => {
       this.userProfile = userProfile;
-      console.log("Profile ->", userProfile);
+      if (userProfile['provider'] == "facebook") {
+        this.userProfile['avatarUrl'] = `https://graph.facebook.com/${userProfile['id']}/picture?type=small`;
+      } else if (userProfile['provider'] == "google") {
+        if (userProfile['photos'].length > 0) {
+          this.userProfile['avatarUrl'] = userProfile['photos'][0]['value'];
+        }
+      }
     });
   }
 }

@@ -1,5 +1,8 @@
-<button type="button" class="btn btn-primary"
-        (click)="loginWithFacebook()">
-    Login
-</button>
-      
+<div class="auth-container col-sm-4">
+    <a class="btn btn-block btn-social btn-facebook" (click)="loginWithFacebook()">
+      <span class="fa fa-facebook"></span>Ingresar con Facebook
+    </a>
+    <a class="btn btn-block btn-social btn-google" (click)="loginWithGoogle()">
+      <span class="fa fa-google"></span>Ingresar con Google
+    </a>
+</div>

@@ -37,6 +37,10 @@ const ROUTES = [
   {
     path: 'visualizador',
     component: VisualizadorComponent
+  },
+  {
+    path: 'login',
+    component: AuthComponent
   }
 ];
 
