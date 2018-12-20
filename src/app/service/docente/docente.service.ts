@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Docente } from '../../model/docente';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class DocenteService {
 
   // Obtiene todos los docentes
   getAllDocentes() {
-    return this.httpClient.get<Array<Docente>>(this.apiUrl, {withCredentials: true});
+    return this.httpClient.get<Array<Docente>>(this.apiUrl);
   }
 
   update(docente: Docente) {

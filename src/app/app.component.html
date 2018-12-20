@@ -10,8 +10,11 @@
       </li>
     </ul>
   </div>
+  <div class="col-sm-2 user-bar">
+    {{userProfile.displayName}}
+    <img src="http://graph.facebook.com/{{userProfile.id}}/picture?type=small" />
+  </div>
 </nav>
 <div class="jumbotron">
 <router-outlet></router-outlet>
-<app-auth></app-auth>
 </div>

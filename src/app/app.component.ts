@@ -1,5 +1,6 @@
 import { OnInit, Component } from '@angular/core';
 import { Router, Route } from "@angular/router";
+import { UserService } from './service/user/user.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,7 @@ import { Router, Route } from "@angular/router";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  userProfile: any;
   title = 'Organizador';
   navLinks = [
     {"name": "Docentes", "routerLink": "docentes"},
@@ -14,18 +16,14 @@ export class AppComponent {
     {"name": "Visualizador", "routerLink": "visualizador"}
   ]
   
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private userService: UserService) {}
 
   ngOnInit() {
-    this.printpath('', this.router.config);
-  }
-  printpath(parent: String, config: Route[]) {
-    for (let i = 0; i < config.length; i++) {
-      let r = config[i];
-      console.log(parent + '/' + r.path);
-      if (r.children && r.path) {
-        this.printpath(parent + '/' + r.path, r.children);
-      }
-    }
+    this.userService.getProfile().subscribe(userProfile => {
+      this.userProfile = userProfile;
+      console.log("Profile ->", userProfile);
+    });
   }
 }
